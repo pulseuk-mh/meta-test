@@ -9,10 +9,13 @@ SRC_URI = "file://sink.env
 inherit allarch
 
 do_install() {
-install -d {DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas
-install -m 0644 ${WORKDIR}sink.env ${D}${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas/ 
-install -m 0644 ${WORKDIR}other.env ${D}${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas/ 
+install -d ${DEPLOYDIR}/boot/wirepas
+install -m 0644 ${WORKDIR}sink.env ${D}${DEPLOYDIR}/boot/wirepas/ 
+install -m 0644 ${WORKDIR}other.env ${D}${DEPLOYDIR}/boot/wirepas/ 
+#install -d {DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas
+#install -m 0644 ${WORKDIR}sink.env ${D}${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas/ 
+#install -m 0644 ${WORKDIR}other.env ${D}${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas/ 
 }
 
-FILES_${PN} += "${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas/sink.env"
-FILES_${PN} += "${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/wirepas/other.env"
+FILES_${PN} += "${DEPLOYDIR}/boot/wirepas/sink.env"
+FILES_${PN} += "${DEPLOYDIR}/boot/wirepas/other.env"
